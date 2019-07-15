@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Home from './modules/Home';
 
 // Business-logic code flow starts here
 function App() {
@@ -14,7 +15,9 @@ function App() {
 				</div>
 			</header>
 			{/* Body */}
-			<div className='body-container inner-padding'>Body</div>
+			<div className='body-container inner-padding'>
+				<Home />
+			</div>
 			{/* Footer */}
 			<footer className='footer inner-padding'>Coding Problem | GeekTrust Challenge</footer>
 		</div>
