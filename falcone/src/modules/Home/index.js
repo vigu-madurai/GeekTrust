@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react';
-import axios from 'axios';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Dropdown } from '../DropDown';
-
-export default class Home extends PureComponent {
+import { setInitialValues } from '../../actions';
+class Home extends PureComponent {
 	renderDestination = () => {
 		return (
 			<>
 				<div className='destination'>Destination 1</div>
 				<div>
+					{JSON.stringify(this.props.planets[0])}
 					<Dropdown />
 				</div>
 			</>
@@ -16,20 +17,7 @@ export default class Home extends PureComponent {
 	};
 
 	componentDidMount() {
-		axios.get(`https://findfalcone.herokuapp.com/planets`).then(res => {
-			const planets = res.data;
-			this.setState({ planets });
-		});
-		axios.get(`https://findfalcone.herokuapp.com/vehicles`).then(res => {
-			const vehicles = res.data;
-			this.setState({ vehicles });
-		});
-		axios
-			.post(`https://findfalcone.herokuapp.com/token`, {}, { headers: { Accept: 'application/json' } })
-			.then(res => {
-				console.log(res);
-				this.setState({ token: res.data });
-			});
+		this.props.setInitialValues();
 	}
 	render() {
 		console.log(this.state);
@@ -41,3 +29,16 @@ export default class Home extends PureComponent {
 		);
 	}
 }
+
+const mapStateToProps = state => ({
+	...state
+});
+
+const mapDispatchToProps = {
+	setInitialValues
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Home);
