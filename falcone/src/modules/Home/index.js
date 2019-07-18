@@ -1,44 +1,42 @@
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Dropdown } from '../DropDown';
-import { setInitialValues } from '../../actions';
+import React, { PureComponent } from "react";
+import { connect } from "react-redux";
+import LaunchDestination from "../LaunchDestination";
+import loader from "../../assets/loader.gif";
+import { setInitialValues } from "../../actions";
+import "./index.css";
 class Home extends PureComponent {
-	renderDestination = () => {
-		return (
-			<>
-				<div className='destination'>Destination 1</div>
-				<div>
-					{JSON.stringify(this.props.planets[0])}
-					<Dropdown />
-				</div>
-			</>
-		);
-	};
+  componentDidMount() {
+    this.props.setInitialValues();
+  }
 
-	componentDidMount() {
-		this.props.setInitialValues();
-	}
-	render() {
-		console.log(this.state);
-		return (
-			<div className='home-container'>
-				Select Planets you want to serach in...
-				<div className='destination-container'>{this.renderDestination()}</div>
-			</div>
-		);
-	}
+  render() {
+    const { loading } = this.props;
+    return (
+      <div className="home-container">
+        {loading ? (
+          // render loader until data is fetched
+          <div className="loader-wrapper">
+            <img src={loader} alt="loader" />
+            Loading...
+          </div>
+        ) : (
+          // render the main components
+          <LaunchDestination />
+        )}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-	...state
+  ...state
 });
 
 const mapDispatchToProps = {
-	setInitialValues
+  setInitialValues
 };
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Home);
