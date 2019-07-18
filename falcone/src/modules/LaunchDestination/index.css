@@ -1,0 +1,23 @@
+.destination-container-heading {
+    font-size: 30px;
+}
+
+.destination-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.launch-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet-wrapper {
+    width:80%;
+}
+
