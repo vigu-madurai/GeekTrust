@@ -1,0 +1,44 @@
+.available-planets-container {
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.available-planets-wrapper {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.available-planet {
+    width: 150px;
+    margin: 10px;
+    border: solid 2px grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.selected-planet {
+    border: solid 2px coral;
+}
+.available-planet img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.planet-name {
+    width: 100%;
+    background: gray;
+    color: white;
+}
+
+.selected-planet-name {
+    width: 100%;
+    background: coral;
+    color: white;
+}
