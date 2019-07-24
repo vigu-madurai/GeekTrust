@@ -45,9 +45,6 @@ class LaunchDestination extends PureComponent {
     } = this.props;
     return (
       <>
-        <div className="destination-container-heading inner-padding">
-          Select any four planets you want to search in...
-        </div>
         {!Object.keys(planets).length ? (
           <div className="loader-wrapper">
             <img src={loader} alt="loader" />
@@ -73,7 +70,6 @@ class LaunchDestination extends PureComponent {
                     timeValue={this.state.timeValue}
                   />
                 )}
-
                 {this.state.activePlanet && this.state.activeVehicle && (
                   <div className="btn-containers">
                     <button
