@@ -65,6 +65,7 @@ class LaunchDestination extends PureComponent {
                 {this.state.activePlanet && (
                   <Vehicles
                     currentPlanet={this.state.activePlanet}
+                    currentVehicle={this.state.activeVehicle}
                     setCurrentVehicle={this.setCurrentVehicle}
                     setTimeTaken={this.setTimeTaken}
                     timeValue={this.state.timeValue}

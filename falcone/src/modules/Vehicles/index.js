@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { vehicleImgConstant } from "../../constants/image-constants";
 import timer from "../../assets/timer.png";
 import "./index.css";
 
 const Vehicles = props => {
-  const { currentPlanet, planets, timeValue, selectedVehicles } = props;
-  const [activeVehicle, setActiveVehicle] = useState(currentPlanet);
+  const {
+    currentPlanet,
+    planets,
+    timeValue,
+    selectedVehicles,
+    currentVehicle
+  } = props;
+  const [activeVehicle, setActiveVehicle] = useState(currentVehicle);
   let v = null;
   // filter out the active planet value to know the distance
   let activePlanet = planets.filter(el => {
@@ -54,6 +60,12 @@ const Vehicles = props => {
       );
     }
   };
+
+  useEffect(() => {
+    if (!props.currentVehicle && activeVehicle) {
+      setActiveVehicle(null);
+    }
+  }, [props.currentVehicle]);
 
   return (
     <div className="available-vehicles-container">
