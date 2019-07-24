@@ -1,0 +1,75 @@
+.available-vehicles-container {
+    display: flex;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.vehicle-wrapper {
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.vehicle {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.not-capable {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.vehicle img {
+    width: 100px;
+    height: 100px;
+}
+
+.vehicle-name {
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
+
+.selected-vehicle {
+    background: limegreen;
+}
+
+.available-number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 13px;
+    color: white;
+    background: limegreen;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+.not-available-ships {
+    background: gray;
+}
+
+.time-taken {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.time-taken img {
+    width: 40px;
+    height: 40px;
+}
