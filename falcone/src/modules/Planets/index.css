@@ -7,6 +7,7 @@
 }
 
 .destination-info {
+    margin-top: 20px;
     height: 30px;
     background: black;
     width: 150px;
@@ -68,4 +69,17 @@
     background: coral;
     color: white;
     border-radius: 21px;
+}
+
+.available-planet img:hover  {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
