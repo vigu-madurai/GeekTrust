@@ -33,7 +33,6 @@ export default (state = {}, action) => {
       };
 
     case "SET_SELECTED_PLANETS":
-      console.log(action.payload);
       return {
         ...state,
         selectedPlanets: action.payload
@@ -43,9 +42,10 @@ export default (state = {}, action) => {
         ...state,
         timeTaken: action.payload
       };
-    case "RESET":
+    case "SET_RESULTS":
       return {
-        // ...initialState
+        ...state,
+        results: action.payload
       };
     default:
       return state;

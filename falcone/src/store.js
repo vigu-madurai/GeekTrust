@@ -13,7 +13,7 @@ export default function configureStore(
     selectedVehicles: [],
     currentDestination: 0,
     timeTaken: 0,
-    isResultAvailable: null
+    results: null
   }
 ) {
   return createStore(

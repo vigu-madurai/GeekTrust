@@ -65,7 +65,7 @@ const setToken = () => dispatch => {
       if (res.status === 200) {
         dispatch({
           type: "SET_TOKEN",
-          payload: res.data
+          payload: res.data.token
         });
       }
     })
@@ -78,20 +78,59 @@ const setToken = () => dispatch => {
     });
 };
 
+const getResults = () => (dispatch, getState) => {
+  const { token, selectedPlanets, selectedVehicles } = getState();
+  setTimeout(() => {
+    axios
+      .post(
+        `https://findfalcone.herokuapp.com/find`,
+        {
+          token: token,
+          planet_names: selectedPlanets,
+          vehicle_names: selectedVehicles
+        },
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        }
+      )
+      .then(res => {
+        if (res.status === 200) {
+          dispatch({
+            type: "SET_RESULTS",
+            payload: res.data
+          });
+        }
+      })
+      .catch(err => {
+        console.log("Find API fails -> ", err);
+        dispatch({
+          type: "SET_RESULTS",
+          payload: null
+        });
+      });
+  }, 3000);
+};
+
 export const setCurrentDestination = () => (dispatch, getState) => {
   const { currentDestination } = getState();
   dispatch({
     type: "SET_CURRENT_DESTINATION",
     payload: currentDestination + 1
   });
+  if (currentDestination + 1 == 4) {
+    dispatch(getResults()); // show result
+  }
 };
 
 export const setSelectedVehicles = vehicle => (dispatch, getState) => {
-  let { vehicles } = getState();
-  vehicles.push(vehicle);
+  let { selectedVehicles, currentDestination } = getState();
+  selectedVehicles[currentDestination] = vehicle;
   dispatch({
     type: "SET_SELECTED_VEHICLES",
-    payload: vehicles
+    payload: selectedVehicles
   });
 };
 
@@ -104,13 +143,14 @@ export const setSelectedPlanets = planet => (dispatch, getState) => {
   });
 };
 
-export const setTimeTaken = () => (dispatch, getState) => {
-  let { planets, vehicles } = getState();
-  let time = 0;
-  dispatch({
-    type: "SET_TIME_TAKEN",
-    payload: time
-  });
+export const setTimeTaken = time => (dispatch, getState) => {
+  let { planets, selectedVehicles, currentDestination, timeTaken } = getState();
+  // let time = 0;
+  // while (currentDestination--) {}
+  // dispatch({
+  //   type: "SET_TIME_TAKEN",
+  //   payload: timeTaken + time
+  // });
 };
 
 export const resetVlaues = () => dispatch => {
