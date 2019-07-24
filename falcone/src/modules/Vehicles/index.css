@@ -1,14 +1,13 @@
 .available-vehicles-container {
-    display: flex;
-    width: 100%;
+    width: 80%;
     margin: 20px 0;
 }
 
 .vehicle-wrapper {
     display: flex;
-    width: 90%;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .vehicle {
@@ -20,6 +19,9 @@
     margin: 10px;
     cursor: pointer;
     position: relative;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+    padding-top: 10px;
+    border-radius: 10px;
 }
 
 .not-capable {
@@ -41,6 +43,9 @@
 
 .selected-vehicle {
     background: limegreen;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
 }
 
 .available-number {
