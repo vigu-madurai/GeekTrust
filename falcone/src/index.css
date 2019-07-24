@@ -11,6 +11,14 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+button:focus {
+	outline: 0;
+}
+
+button {
+	cursor: pointer;
+}
+
 div,
 span {
 	font-family: 'Roboto Condensed', sans-serif;
