@@ -17,6 +17,7 @@ const Planets = props => {
 
   return (
     <div className="available-planets-container">
+      Select any four planets you want to search in...
       <div className="destination-info">
         Destination {currentDestination + 1}
       </div>
