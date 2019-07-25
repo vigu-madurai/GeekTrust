@@ -37,6 +37,8 @@ footer {
 	padding: 5px 10px;
 	color: white;
 	text-decoration: none;
+	background: coral;
+	border-radius: 6px;
 }
 
 .header-btns:hover {
