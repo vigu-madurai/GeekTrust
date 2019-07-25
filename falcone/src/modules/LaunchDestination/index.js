@@ -7,11 +7,14 @@ import {
   setSelectedVehicles,
   setTimeTaken
 } from "../../actions";
+
 import Planets from "../Planets";
 import Results from "../Results";
 import Vehicles from "../Vehicles";
+
 import launchToPlanets from "../../assets/launchToPlanets.gif";
 import loader from "../../assets/loader.gif";
+import timer from "../../assets/timer.png";
 import "./index.css";
 
 class LaunchDestination extends PureComponent {
@@ -33,16 +36,14 @@ class LaunchDestination extends PureComponent {
     this.setState({ activeVehicle: currentVehicle });
   };
 
-  setTimeTaken = timeValue => {
-    this.setState({ timeValue: timeValue });
+  setTimeTaken = timeValueOfActiveVehicle => {
+    this.setState({
+      timeValue: this.props.timeTaken + timeValueOfActiveVehicle
+    });
   };
-  render() {
-    const {
-      currentDestination,
 
-      results,
-      planets
-    } = this.props;
+  render() {
+    const { currentDestination, results, planets } = this.props;
     return (
       <>
         {!Object.keys(planets).length ? (
@@ -62,6 +63,9 @@ class LaunchDestination extends PureComponent {
                     activePlanet={this.state.activePlanet}
                   />
                 </div>
+                <div className="timer-wrapper">
+                  <img src={timer} />: {this.state.timeValue}
+                </div>
                 {this.state.activePlanet && (
                   <Vehicles
                     currentPlanet={this.state.activePlanet}
@@ -77,7 +81,8 @@ class LaunchDestination extends PureComponent {
                       onClick={() =>
                         this.setState({
                           activePlanet: null,
-                          activeVehicle: null
+                          activeVehicle: null,
+                          timeValue: this.props.timeTaken
                         })
                       }
                       className="reset-btn"
@@ -90,6 +95,7 @@ class LaunchDestination extends PureComponent {
                         this.props.setSelectedVehicles(
                           this.state.activeVehicle
                         );
+                        this.props.setTimeTaken(this.state.timeValue);
                         this.props.setCurrentDestination();
                         this.setState({
                           activePlanet: null,
