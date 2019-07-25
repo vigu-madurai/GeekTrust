@@ -84,7 +84,7 @@ class LaunchDestination extends PureComponent {
 									{/* show the available planets */}
 									<Planets
 										setCurrentPlanet={this.setCurrentPlanet}
-										activePlanet={this.state.activePlanet}
+										currentPlanet={this.state.activePlanet}
 									/>
 								</div>
 
