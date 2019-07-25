@@ -90,7 +90,7 @@ class LaunchDestination extends PureComponent {
 
 								{/* timer for selected vehicle wrt to the selected plant */}
 								<div className='timer-wrapper'>
-									<img src={timer} />: {this.state.timeValue}
+									<img src={timer} alt={'timer'} />: {this.state.timeValue}
 								</div>
 
 								{// show the vehicles

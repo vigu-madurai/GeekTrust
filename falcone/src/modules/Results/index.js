@@ -61,12 +61,12 @@ const ResultTemplate = result => {
 	return (
 		<div className='result-wrapper'>
 			<div className={`title1 ${status}`}>{title1}</div>
-			<img src={resultsImgConstant[status]} className='status-img' />
+			<img src={resultsImgConstant[status]} className='status-img' alt='loading' />
 			<div className='title2'>{title2}</div>
-			{img && <img src={img} className='planet-img' />}
+			{img && <img src={img} className='planet-img' alt='planet' />}
 			{timeTaken && (
 				<div className='timer-wrapper'>
-					<img src={timer} className='timer-img' />: {timeTaken}
+					<img src={timer} className='timer-img' alt='timer' />: {timeTaken}
 				</div>
 			)}
 		</div>

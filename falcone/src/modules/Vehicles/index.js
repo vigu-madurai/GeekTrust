@@ -65,7 +65,7 @@ const Vehicles = props => {
 				{isVehiceCapable().map(el => {
 					return (
 						<div onClick={() => selectVehicle(el)} className={`vehicle ${el.capable ? '' : 'not-capable'}`}>
-							<img src={vehicleImgConstant[el.name]} />
+							<img src={vehicleImgConstant[el.name]} alt={el.name} />
 							<div
 								className={`vehicle-name ${
 									activeVehicle && activeVehicle === el.name ? 'selected-vehicle' : ''
