@@ -30,7 +30,6 @@ const setPlanets = () => dispatch => {
         type: "SET_PLANETS",
         payload: []
       });
-      // window.location.href = '/404';
     });
 };
 
@@ -106,9 +105,12 @@ const getResults = () => (dispatch, getState) => {
       })
       .catch(err => {
         console.log("Find API fails -> ", err);
+        const failure = {
+          status: "failure"
+        };
         dispatch({
           type: "SET_RESULTS",
-          payload: null
+          payload: failure
         });
       });
   }, 3000);
@@ -121,7 +123,7 @@ export const setCurrentDestination = () => (dispatch, getState) => {
     payload: currentDestination + 1
   });
   if (currentDestination + 1 == 4) {
-    dispatch(getResults()); // show result
+    dispatch(getResults());
   }
 };
 
@@ -143,19 +145,9 @@ export const setSelectedPlanets = planet => (dispatch, getState) => {
   });
 };
 
-export const setTimeTaken = time => (dispatch, getState) => {
-  let { planets, selectedVehicles, currentDestination, timeTaken } = getState();
-  // let time = 0;
-  // while (currentDestination--) {}
-  // dispatch({
-  //   type: "SET_TIME_TAKEN",
-  //   payload: timeTaken + time
-  // });
-};
-
-export const resetVlaues = () => dispatch => {
+export const setTimeTaken = time => dispatch => {
   dispatch({
-    type: "RESET",
-    payload: {}
+    type: "SET_TIME_TAKEN",
+    payload: time
   });
 };
