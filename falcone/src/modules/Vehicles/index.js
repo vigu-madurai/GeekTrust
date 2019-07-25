@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { vehicleImgConstant } from "../../constants/image-constants";
-import timer from "../../assets/timer.png";
 import "./index.css";
 
 const Vehicles = props => {
   const { currentPlanet, planets, selectedVehicles, currentVehicle } = props;
   const [activeVehicle, setActiveVehicle] = useState(currentVehicle);
-  let v = null;
+
   // filter out the active planet value to know the distance
   let activePlanet = planets.filter(el => {
     return el.name === currentPlanet;
@@ -39,7 +38,6 @@ const Vehicles = props => {
     // if the vehicle can be selected
     if (el.availableNo && el.capable) {
       setActiveVehicle(el.name);
-      v = el;
       props.setTimeTaken(activePlanet.distance / el.speed);
       props.setCurrentVehicle(el.name);
     }
@@ -55,6 +53,7 @@ const Vehicles = props => {
     }
   };
 
+  // if user clicks reset, remove the selected vehicle in state level
   useEffect(() => {
     if (!props.currentVehicle && activeVehicle) {
       setActiveVehicle(null);
@@ -100,8 +99,7 @@ const mapStateToProps = state => {
   return {
     vehicles: state.vehicles,
     selectedVehicles: state.selectedVehicles,
-    planets: state.planets,
-    timeTaken: state.timeTaken
+    planets: state.planets
   };
 };
 
