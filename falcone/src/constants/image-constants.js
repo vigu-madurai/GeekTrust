@@ -10,6 +10,10 @@ import SpaceRocket from "../assets/SpaceRocket.gif";
 import SpaceShip from "../assets/SpaceShip.gif";
 import SpaceShuttle from "../assets/SpaceShuttle.gif";
 
+import success from "../assets/success.gif";
+import failed from "../assets/false.gif";
+import failure from "../assets/failure.png";
+
 export const vehicleImgConstant = {
   "Space pod": SpacePod,
   "Space rocket": SpaceRocket,
@@ -24,4 +28,10 @@ export const planetImgConstant = {
   Lerbin: Lerbin,
   Pingasor: Pingasor,
   Sapir: Sapir
+};
+
+export const resultsImgConstant = {
+  success: success,
+  false: failed,
+  failure: failure
 };
