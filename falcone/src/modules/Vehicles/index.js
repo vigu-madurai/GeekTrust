@@ -5,13 +5,7 @@ import timer from "../../assets/timer.png";
 import "./index.css";
 
 const Vehicles = props => {
-  const {
-    currentPlanet,
-    planets,
-    timeValue,
-    selectedVehicles,
-    currentVehicle
-  } = props;
+  const { currentPlanet, planets, selectedVehicles, currentVehicle } = props;
   const [activeVehicle, setActiveVehicle] = useState(currentVehicle);
   let v = null;
   // filter out the active planet value to know the distance
@@ -51,12 +45,12 @@ const Vehicles = props => {
     }
     // if there is no available ships
     else if (!el.availableNo) {
-      window.alert(`Forgive me King Shahn! There are no ${el.name}s left!`);
+      window.alert(`Forgive me King Shan! There are no ${el.name}s left!`);
     }
     // if user select a uncapable ship
     else {
       window.alert(
-        `King Shahn! ${el.name} is not capable to fly to ${activePlanet.name}`
+        `King Shan! ${el.name} is not capable to fly to ${activePlanet.name}`
       );
     }
   };
@@ -98,13 +92,6 @@ const Vehicles = props => {
           );
         })}
       </div>
-
-      {/* {activeVehicle && (
-        <div className="time-taken">
-          <img src={timer} alt="timer" />
-          {timeValue + activePlanet.distance / activeVehicle.speed}
-        </div>
-      )} */}
     </div>
   );
 };
