@@ -1,71 +1,75 @@
-
-
-.destination-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 20px;
-    height: 100%;
+/* loader css */
+.loader-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.loader-wrapper img {
+	width: 100px;
+	height: 100px;
 }
 
+/* main container */
+.destination-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 20px;
+	height: 100%;
+}
+
+/* launcher container */
 .launch-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
 }
 
 .planet-wrapper {
-    width:80%;
+	width: 80%;
 }
 
 .timer-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 80%;
-    font-size: 20px;
-    padding: 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 80%;
+	font-size: 20px;
+	padding: 10px 0;
 }
-
 .timer-wrapper img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
 }
 
 .btn-containers {
-    display: inline-flex;
-    width: 200px;
-    justify-content: space-between;
-    align-items: center;
+	display: inline-flex;
+	width: 200px;
+	justify-content: space-between;
+	align-items: center;
 }
 .reset-btn {
-    
-    color: black;
-    background: lightgray;
-    border: 0;
-    border-radius: 12px;
-    padding: 10px 20px;
-    cursor: pointer;
+	color: black;
+	background: lightgray;
+	border: 0;
+	border-radius: 12px;
+	padding: 10px 20px;
+	cursor: pointer;
 }
-
 .reset-btn:hover {
 	box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
 }
-
 .launch-btn {
-    padding: 10px 20px;
-    border: 0;
-    color: white;
-    background: limegreen;
-    border-radius: 12px;
-
+	padding: 10px 20px;
+	border: 0;
+	color: white;
+	background: limegreen;
+	border-radius: 12px;
 }
-
 .launch-btn:hover {
-        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
-
+	box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
 }
