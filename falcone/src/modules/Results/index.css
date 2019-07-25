@@ -1,3 +1,12 @@
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+}
+
 .result-wrapper {
     width: 80%;
     display: flex;
@@ -8,9 +17,26 @@
 
 .title1 {
     font-size: 30px;
-    background: coral;
     padding: 10px;
-    color: white;
+}
+
+.success {
+  color: limegreen;
+
+}
+
+.failure {
+  color: gray;
+}
+
+.false {
+  color: red;
+}
+
+.status-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
 }
 
 .title2 {
@@ -19,14 +45,14 @@
 
 }
 
-.result-wrapper img {
+.planet-img {
     width: 60px;
     height: 60px;
     object-fit: contain;
     padding: 10px;
 }
 
-.result-wrapper img:hover {
+.planet-img:hover {
     animation: rotation 8s infinite linear;
 }
 
