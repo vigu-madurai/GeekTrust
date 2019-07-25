@@ -5,12 +5,12 @@ import { planetImgConstant } from '../../constants/image-constants';
 import './index.css';
 
 const Planets = props => {
-	const { currentDestination, activePlanet, planets, selectedPlanets } = props;
-	const [currentPlanet, addCurrentPlanet] = useState(activePlanet); // to show the current selected planet
+	const { currentDestination, currentPlanet, planets, selectedPlanets } = props;
+	const [activePlanet, setActivePlanet] = useState(currentPlanet); // to show the current selected planet
 
 	// remove the launched planets
 	let availablePlanets = planets;
-	if (currentPlanet) {
+	if (activePlanet) {
 		availablePlanets = planets.filter(el => {
 			return !selectedPlanets.includes(el.name);
 		});
@@ -28,14 +28,14 @@ const Planets = props => {
 							return (
 								<div
 									onClick={() => {
-										addCurrentPlanet(el.name);
+										setActivePlanet(el.name);
 										props.setCurrentPlanet(el.name);
 									}}
 									key={currentDestination + '-' + el.name}
 									className='available-planet'
 									ref={planet => {
 										// scroolintoview for selected element
-										if (el.name === currentPlanet) {
+										if (el.name === activePlanet) {
 											planet &&
 												planet.scrollIntoView({
 													behavior: 'smooth',
@@ -47,7 +47,7 @@ const Planets = props => {
 									{/* set image for the planets */}
 									<img src={planetImgConstant[el.name]} />
 									{/* highlight the last selected plant */}
-									<div className={`${el.name === currentPlanet ? 'selected-' : ''}planet-name`}>
+									<div className={`${el.name === activePlanet ? 'selected-' : ''}planet-name`}>
 										{el.name}
 									</div>
 								</div>
